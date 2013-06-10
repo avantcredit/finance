@@ -1,6 +1,3 @@
-require 'rubygems'
-require 'rake'
-
 SPEC = Gem::Specification.new do |s|
   s.name = "finance"
   s.version = "1.1.2"
@@ -14,7 +11,9 @@ SPEC = Gem::Specification.new do |s|
   s.required_ruby_version = '>=1.9'
   s.add_dependency 'flt', '>=1.3.0'
   s.add_development_dependency 'shoulda', '3.1.1'
-  s.files = FileList['README', 'COPYING', 'COPYING.LESSER', 'HISTORY', 'lib/**/*.rb', 'test/**/*.rb'].to_a
+
+  s.files = Dir.glob("{lib,test}/**/*.rb")
+  s.files += %w(README COPYING COPYING.LESSER HISTORY)
 
   s.has_rdoc = true
   s.extra_rdoc_files = ['README', 'COPYING', 'COPYING.LESSER', 'HISTORY']
